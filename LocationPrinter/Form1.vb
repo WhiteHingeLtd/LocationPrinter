@@ -106,6 +106,7 @@
                     Case 3
                         BarcodePoint.X = 135
                         TextPoint.X = 142
+                        
                 End Select
                 Select Case Row
                     Case 1
@@ -115,11 +116,11 @@
                         BarcodePoint.Y = 57
                         TextPoint.Y = 45
                     Case 3
-                        BarcodePoint.Y = 88
-                        TextPoint.Y = 75
+                        BarcodePoint.Y = 87
+                        TextPoint.Y = 74
                     Case 4
                         BarcodePoint.Y = 116
-                        TextPoint.Y = 103
+                        TextPoint.Y = 104
                     Case 5
                         BarcodePoint.Y = 146
                         TextPoint.Y = 133
@@ -140,39 +141,41 @@
                 Console.WriteLine("Barcode Point " +BarcodePoint.ToString)
                 Console.WriteLine("Text Point " + TextPoint.ToString)
 
-                    e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode(Pair.Value.PadLeft(6, "0"), 40, 2.25),New Point(BarcodePoint.X,BarcodePoint.Y))
-                    e.Graphics.DrawString(Pair.Key, New Font("Arial", 36,FontStyle.Bold), Black, New RectangleF(TextPoint.X,TextPoint.Y,50,11), GoodFormat)
+                    'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode(Pair.Value.PadLeft(6, "0"), 40, 2.25),New Point(BarcodePoint.X,BarcodePoint.Y))
+                    e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo"+Pair.Value.replace("qlo","").PadLeft(6,"0"), 40, 2.25),New Point(BarcodePoint.X+1,BarcodePoint.Y))
+                    e.Graphics.DrawString(Pair.Key, New Font("Arial", 36,FontStyle.Bold), Black, New RectangleF(TextPoint.X,TextPoint.Y-2,50,11), GoodFormat)
+                    e.Graphics.DrawString(Pair.Value.replace("qlo","").TrimStart("0"), New Font("Arial", 9,FontStyle.Bold), Black, New RectangleF(TextPoint.X,BarcodePoint.Y-8,50,11), GoodFormat)
 
             Next
-                        'e.Graphics.DrawRectangles(Pens.Black, {
-                        '  New Rectangle(2, 10, 63.5, 29.6),
-                        '  New Rectangle(68, 10, 63.5, 29.6),
-                        '  New Rectangle(134, 10, 63.5, 29.6),
-                        '  New Rectangle(2, 40, 63.5, 29.6),
-                        '  New Rectangle(68, 40, 63.5, 29.6),
-                        '  New Rectangle(134, 40, 63.5, 29.6),
-                        '  New Rectangle(2, 70, 63.5, 29.6),
-                        '  New Rectangle(68, 70, 63.5, 29.6),
-                        '  New Rectangle(134, 70, 63.5, 29.6),
-                        '  New Rectangle(2, 100, 63.5, 29.6),
-                        '  New Rectangle(68, 100, 63.5, 29.6),
-                        '  New Rectangle(134, 100, 63.5, 29.6),
-                        '  New Rectangle(2, 130, 63.5, 29.6),
-                        '  New Rectangle(68, 130, 63.5, 29.6),
-                        '  New Rectangle(134, 130, 63.5, 29.6),
-                        '  New Rectangle(2, 160, 63.5, 29.6),
-                        '  New Rectangle(68, 160, 63.5, 29.6),
-                        '  New Rectangle(134, 160, 63.5, 29.6),
-                        '  New Rectangle(2, 190, 63.5, 29.6),
-                        '  New Rectangle(68, 190, 63.5, 29.6),
-                        '  New Rectangle(134, 190, 63.5, 29.6),
-                        '  New Rectangle(2, 220, 63.5, 29.6),
-                        '  New Rectangle(68, 220, 63.5, 29.6),
-                        '  New Rectangle(134, 220, 63.5, 29.6),
-                        '  New Rectangle(2, 250, 63.5, 29.6),
-                        '  New Rectangle(68, 250, 63.5, 29.6),
-                        '  New Rectangle(134, 250, 63.5, 29.6)
-                        '  })
+            'e.Graphics.DrawRectangles(New Pen(Black,0.25), {
+            '  New Rectangle(2, 10, 63.5, 29.6),
+            '  New Rectangle(68, 10, 63.5, 29.6),
+            '  New Rectangle(134, 10, 63.5, 29.6),
+            '  New Rectangle(2, 40, 63.5, 29.6),
+            '  New Rectangle(68, 40, 63.5, 29.6),
+            '  New Rectangle(134, 40, 63.5, 29.6),
+            '  New Rectangle(2, 70, 63.5, 29.6),
+            '  New Rectangle(68, 70, 63.5, 29.6),
+            '  New Rectangle(134, 70, 63.5, 29.6),
+            '  New Rectangle(2, 100, 63.5, 29.6),
+            '  New Rectangle(68, 100, 63.5, 29.6),
+            '  New Rectangle(134, 100, 63.5, 29.6),
+            '  New Rectangle(2, 130, 63.5, 29.6),
+            '  New Rectangle(68, 130, 63.5, 29.6),
+            '  New Rectangle(134, 130, 63.5, 29.6),
+            '  New Rectangle(2, 160, 63.5, 29.6),
+            '  New Rectangle(68, 160, 63.5, 29.6),
+            '  New Rectangle(134, 160, 63.5, 29.6),
+            '  New Rectangle(2, 190, 63.5, 29.6),
+            '  New Rectangle(68, 190, 63.5, 29.6),
+            '  New Rectangle(134, 190, 63.5, 29.6),
+            '  New Rectangle(2, 220, 63.5, 29.6),
+            '  New Rectangle(68, 220, 63.5, 29.6),
+            '  New Rectangle(134, 220, 63.5, 29.6),
+            '  New Rectangle(2, 250, 63.5, 29.6),
+            '  New Rectangle(68, 250, 63.5, 29.6),
+            '  New Rectangle(134, 250, 63.5, 29.6)
+            '  })
 
         Else
             e.Graphics.PageUnit = GraphicsUnit.Millimeter
