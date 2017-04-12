@@ -61,6 +61,7 @@ Partial Class Form1
         Me.CurrentLocationLabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.SetupGroup = New WHLClasses.Controls.BPanel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.StartButton = New System.Windows.Forms.Button()
         Me.PrefixBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -86,7 +87,8 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.LocationTB = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.ShelfGroup.SuspendLayout
         Me.RowGroup.SuspendLayout
         Me.SpaceGroup.SuspendLayout
@@ -590,6 +592,15 @@ Partial Class Form1
         Me.SetupGroup.TabIndex = 14
         Me.SetupGroup.Title = "Control"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(49, 89)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(98, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "PrintSheet(s)"
+        Me.Button2.UseVisualStyleBackColor = true
+        '
         'StartButton
         '
         Me.StartButton.Location = New System.Drawing.Point(266, 90)
@@ -849,20 +860,30 @@ Partial Class Form1
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Source:"
         '
-        'Button2
+        'LocationTB
         '
-        Me.Button2.Location = New System.Drawing.Point(49, 89)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "PrintSheet"
-        Me.Button2.UseVisualStyleBackColor = true
+        Me.LocationTB.Location = New System.Drawing.Point(667, 48)
+        Me.LocationTB.Multiline = true
+        Me.LocationTB.Name = "LocationTB"
+        Me.LocationTB.Size = New System.Drawing.Size(142, 239)
+        Me.LocationTB.TabIndex = 16
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = true
+        Me.Label9.Location = New System.Drawing.Point(667, 34)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(313, 13)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "If this box has anythign in it, it will print each location here instead"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(667, 292)
+        Me.ClientSize = New System.Drawing.Size(1003, 292)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.LocationTB)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.Text = "Shelf Label Maker"
@@ -883,6 +904,7 @@ Partial Class Form1
         Me.BPanel1.ResumeLayout(false)
         Me.BPanel1.PerformLayout
         Me.ResumeLayout(false)
+        Me.PerformLayout
 
 End Sub
 
@@ -951,4 +973,6 @@ End Sub
     Friend WithEvents Currentlabel1 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents LocationTB As TextBox
+    Friend WithEvents Label9 As Label
 End Class

@@ -307,56 +307,86 @@
 
         StartButton.Enabled = False
         ListOfShelves.Clear()
-        Try
-        For Each shelf As CheckBox In ShelfGroup.Controls
-            If shelf.Checked Then
-                shelf.BackColor = Color.PaleGoldenrod
-                For Each row As CheckBox In RowGroup.Controls
-                    If row.Checked Then
-                        row.BackColor = Color.PaleGoldenrod
-                        For Each space As CheckBox In SpaceGroup.Controls
-                            If space.Checked Then
-                                space.BackColor = Color.PaleGoldenrod
-                                'ITS HAPPENING
-                                Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
-                                CurrentLocationLabel.Text = Current
-                                Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-                                If response.GetType = (New ArrayList).GetType Then
-                                    Dim list As ArrayList = response
-                                    If list.Count = 1 Then
-                                        CurrentID = list(0)(0).ToString
-                                        CurrentIdLabel.Text = CurrentID
-                                        CurrentLabel = Current.ToUpper
-                                        CurrentType = list(0)(3)
-                                        Printer.DocumentName = Current + " - Shelf label"
-                                        ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
-                                        'Printer.Print()
-                                    Else
-                                        MsgBox("Could not find an ID for location " + Current)
+
+        If LocationTB.lines.count>0 then
+            For each Line as String in LocationTB.Lines
+                Dim Current As String = Line
+                CurrentLocationLabel.Text = Current
+                Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                If response.GetType = (New ArrayList).GetType Then
+                    Dim list As ArrayList = response
+                    If list.Count = 1 Then
+                        CurrentID = list(0)(0).ToString
+                        CurrentIdLabel.Text = CurrentID
+                        CurrentLabel = Current.ToUpper
+                        CurrentType = list(0)(3)
+                        Printer.DocumentName = Current + " - Shelf label"
+                        ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
+                        'Printer.Print()
+                    Else
+                        MsgBox("Could not find an ID for location " + Current)
+                    End If
+                Else
+                    MsgBox("There was an issue with the database. Aborting.")
+                    Exit For
+                End If
+                'End of cool
+            Next
+            If ListOfShelves.Count > 0
+                    CreateSheetOfBarcodes(ListOfShelves)
+                End If
+        Else
+            Try
+                For Each shelf As CheckBox In ShelfGroup.Controls
+                    If shelf.Checked Then
+                        shelf.BackColor = Color.PaleGoldenrod
+                        For Each row As CheckBox In RowGroup.Controls
+                            If row.Checked Then
+                                row.BackColor = Color.PaleGoldenrod
+                                For Each space As CheckBox In SpaceGroup.Controls
+                                    If space.Checked Then
+                                        space.BackColor = Color.PaleGoldenrod
+                                        'ITS HAPPENING
+                                        Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
+                                        CurrentLocationLabel.Text = Current
+                                        Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                                        If response.GetType = (New ArrayList).GetType Then
+                                            Dim list As ArrayList = response
+                                            If list.Count = 1 Then
+                                                CurrentID = list(0)(0).ToString
+                                                CurrentIdLabel.Text = CurrentID
+                                                CurrentLabel = Current.ToUpper
+                                                CurrentType = list(0)(3)
+                                                Printer.DocumentName = Current + " - Shelf label"
+                                                ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
+                                                'Printer.Print()
+                                            Else
+                                                MsgBox("Could not find an ID for location " + Current)
+                                            End If
+                                        Else
+                                            MsgBox("There was an issue with the database. Aborting.")
+                                            Exit For
+                                            Exit For
+                                            Exit For
+                                        End If
+                                        'End of cool
+                                        space.BackColor = SystemColors.Control
+                                        Application.DoEvents()
                                     End If
-                                Else
-                                    MsgBox("There was an issue with the database. Aborting.")
-                                    Exit For
-                                    Exit For
-                                    Exit For
-                                End If
-                                'End of cool
-                                space.BackColor = SystemColors.Control
-                                Application.DoEvents()
+                                Next
+                                row.BackColor = SystemColors.Control
                             End If
                         Next
-                        row.BackColor = SystemColors.Control
+                        shelf.BackColor = SystemColors.Control
                     End If
                 Next
-                shelf.BackColor = SystemColors.Control
-            End If
-        Next
-        Catch ex As Exception
-        Finally
-            If ListOfShelves.Count > 0
-                CreateSheetOfBarcodes(ListOfShelves)
-            End If
-        End Try
+            Catch ex As Exception
+            Finally
+                If ListOfShelves.Count > 0
+                    CreateSheetOfBarcodes(ListOfShelves)
+                End If
+            End Try
+        End If
         StartButton.Enabled = True
         End Sub
     Private ListOf27Barcodes as new Dictionary(Of String,String)
@@ -375,6 +405,13 @@
             End If
 
         Next
+        if ListOf27Barcodes.Count > 0 Then
+            PrintingSheet = True
+            Printer.Print()
+            ListOf27Barcodes.Clear()
+            PrintingSheet = False
+        End If
+
     End Sub
     Private Function CreateBarcodeLocation(Column as Integer,Row As Integer) As Point
         Dim ReturnPoint as New Point
