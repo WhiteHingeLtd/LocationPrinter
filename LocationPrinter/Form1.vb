@@ -331,6 +331,7 @@
                     Exit For
                 End If
                 'End of cool
+                Application.DoEvents()
             Next
             If ListOfShelves.Count > 0
                     CreateSheetOfBarcodes(ListOfShelves)
