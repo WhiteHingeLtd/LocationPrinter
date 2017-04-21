@@ -55,8 +55,8 @@
 
     Dim Black As New SolidBrush(Color.Black)
     Dim White As New SolidBrush(Color.White)
-    Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
-    Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
+    Dim textlocation As RectangleF = New RectangleF(1, 5, 59, 10) '(2, 3, 72, 19)
+    Dim subtextlocation As RectangleF = New RectangleF(1, 16, 59, 6) '(2, 22, 72, 6)
     Dim Size11 As New Font("Arial", 11.0!, FontStyle.Regular)
     Dim Size11B As New Font("Arial", 11.0!, FontStyle.Bold)
     Dim Size18 As New Font("Arial", 36.0!, FontStyle.Regular)
@@ -90,7 +90,7 @@
         'Dim Size18B As New Font("Arial", 36.0!, FontStyle.Bold)
         Dim Size18B As New Font("Arial", 36.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
-        e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 3), New Point(0, 30)) 'Was 13,19
+        e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 50, 2), New Point(2, 21)) 'Was 13,19
         e.Graphics.DrawString(CurrentLabel, Size18B, Black, textlocation, GoodFormat)
 
         ''Subtext Black on white
