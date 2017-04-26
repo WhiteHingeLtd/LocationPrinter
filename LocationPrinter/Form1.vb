@@ -55,8 +55,21 @@
 
     Dim Black As New SolidBrush(Color.Black)
     Dim White As New SolidBrush(Color.White)
-    Dim textlocation As RectangleF = New RectangleF(1, 5, 59, 10) '(2, 3, 72, 19)
-    Dim subtextlocation As RectangleF = New RectangleF(1, 16, 59, 6) '(2, 22, 72, 6)
+
+    '==FOR PREPACK LABELS (SMALL)==
+    'Dim textlocation As RectangleF = New RectangleF(1, 5, 59, 10)
+    'Dim subtextlocation As RectangleF = New RectangleF(1, 16, 59, 6)
+
+    '==FOR PALLET/UNIT 1 LABELS (LARGE YELLOW)==
+    'Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
+    'Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
+
+    '==FOR ORIGINAL SETTINGS==
+    'Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
+    'Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
+
+    Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
+    Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
     Dim Size11 As New Font("Arial", 11.0!, FontStyle.Regular)
     Dim Size11B As New Font("Arial", 11.0!, FontStyle.Bold)
     Dim Size18 As New Font("Arial", 36.0!, FontStyle.Regular)
@@ -88,9 +101,18 @@
         'Dim textlocation As RectangleF = New RectangleF(0, 0, 57, 19)
         'Dim subtextlocation As RectangleF = New RectangleF(0, 16, 57, 6)
         'Dim Size18B As New Font("Arial", 36.0!, FontStyle.Bold)
-        Dim Size18B As New Font("Arial", 36.0!, FontStyle.Bold) '36 for small text, 48 for large text
+        Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
-        e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 50, 2), New Point(2, 21)) 'Was 13,19
+        '==FOR PREPACK LABELS (SMALL)==
+        'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 50, 2), New Point(2, 21))
+
+        '==FOR PALLET/UNIT 1 LABELS (LARGE YELLOW)==
+        'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 3), New Point(-1, 30))
+
+        '==FOR ORIGINAL SETTINGS==
+        'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 2), New Point(13, 19))
+
+        e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 3), New Point(-1, 30))
         e.Graphics.DrawString(CurrentLabel, Size18B, Black, textlocation, GoodFormat)
 
         ''Subtext Black on white
