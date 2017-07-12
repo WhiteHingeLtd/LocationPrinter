@@ -72,7 +72,7 @@
     'Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
     'Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
 
-    Dim textlocation As RectangleF = New RectangleF(0, 3, 76, 19)
+    Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
     Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
     Dim Size11 As New Font("Arial", 11.0!, FontStyle.Regular)
     Dim Size11B As New Font("Arial", 11.0!, FontStyle.Bold)
@@ -96,6 +96,9 @@
         Storage = 0
         Pickable = 1
         Prepack = 2
+        Delivery = 3
+        PrepackInstant = 4
+        PrepackComplete = 5
     End Enum
 
     Private Sub Printer_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Printer.PrintPage
@@ -118,7 +121,7 @@
         '==FOR ORIGINAL SETTINGS==
         'Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
-        Dim Size18B As New Font("Arial", 44.0!, FontStyle.Bold) '36 for small text, 48 for large text
+        Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
         '==FOR PREPACK LABELS (SMALL)==
         'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 50, 2), New Point(2, 21))
