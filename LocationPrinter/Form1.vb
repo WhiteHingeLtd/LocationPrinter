@@ -60,8 +60,12 @@
     'Dim textlocation As RectangleF = New RectangleF(1, 5, 59, 10)
     'Dim subtextlocation As RectangleF = New RectangleF(1, 16, 59, 6)
 
-    '==FOR PALLET/UNIT 1 LABELS (LARGE YELLOW)==
+    '==FOR PALLET/UNIT 1/DEL LABELS (LARGE YELLOW)==
     'Dim textlocation As RectangleF = New RectangleF(2, 3, 72, 19)
+    'Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
+
+    '==FOR DEL LABELS (LARGE YELLOW)==
+    'Dim textlocation As RectangleF = New RectangleF(-2, 3, 80, 19)
     'Dim subtextlocation As RectangleF = New RectangleF(2, 22, 72, 6)
 
     '==FOR YORKE LABELS (LARGE YELLOW)==
@@ -115,18 +119,22 @@
         '==FOR PALLET/UNIT 1 LABELS (LARGE YELLOW)==
         'Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold)
 
-        '==FOR YORKE LABELS (LARGE YELLOW)==
+        '==FOR YORKE LABELS / PAL 100+ (LARGE YELLOW)==
         'Dim Size18B As New Font("Arial", 44.0!, FontStyle.Bold)
+
+        '==FOR DEL LABELS (LARGE YELLOW)==
+        'Dim Size18B As New Font("Arial", 42.0!, FontStyle.Bold)
 
         '==FOR ORIGINAL SETTINGS==
         'Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
-        Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
+        Dim Size18B As New Font("Arial", 44.0!, FontStyle.Bold) '36 for small text, 48 for large text
+
 
         '==FOR PREPACK LABELS (SMALL)==
         'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 50, 2), New Point(2, 21))
 
-        '==FOR PALLET/UNIT 1 LABELS (LARGE YELLOW)==
+        '==FOR PALLET/UNIT 1/DEL LABELS (LARGE YELLOW)==
         'e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 3), New Point(-1, 30))
 
         '==FOR YORKE LABELS (LARGE YELLOW)==
@@ -137,6 +145,7 @@
 
         e.Graphics.DrawImageUnscaled(barcodes.CreateBarcode("qlo" + CurrentID.ToString.PadLeft(6, "0"), 70, 3), New Point(-1, 30))
         e.Graphics.DrawString(CurrentLabel, Size18B, Black, textlocation, GoodFormat)
+
 
         ''Subtext Black on white
         'e.Graphics.DrawString(CurrentID + "   " + CurrentType.ToString, Size11, Black, subtextlocation, GoodFormat)
