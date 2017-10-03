@@ -152,7 +152,7 @@
 
         'Subtext White on Black
         e.Graphics.FillRectangle(Brushes.Black, subtextlocation)
-        e.Graphics.DrawString(CurrentID + "   " + CurrentType.ToString, Size11B, White, subtextlocation, GoodFormat)
+        e.Graphics.DrawString(CurrentID, Size11B, White, subtextlocation, GoodFormat)
 
         'Border for reference - Get rid on the real one
         'e.Graphics.DrawRectangle(New Pen(Color.Black), New Rectangle(0, 0, 57, 33))
