@@ -98,13 +98,13 @@
                 End If
                 Select Case Column
                     Case 1
-                        BarcodePoint.X = 4
+                        BarcodePoint.X = 8
                         TextPoint.X = 10
                     Case 2
-                        BarcodePoint.X = 69
+                        BarcodePoint.X = 73
                         TextPoint.X = 76
                     Case 3
-                        BarcodePoint.X = 135
+                        BarcodePoint.X = 139
                         TextPoint.X = 142
                         
                 End Select
