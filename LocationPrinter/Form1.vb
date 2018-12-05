@@ -128,7 +128,7 @@
         '==FOR ORIGINAL SETTINGS==
         'Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
-        Dim Size18B As New Font("Arial", 48.0!, FontStyle.Bold) '36 for small text, 48 for large text
+        Dim Size18B As New Font("Arial", 44.0!, FontStyle.Bold) '36 for small text, 48 for large text
 
 
         '==FOR PREPACK LABELS (SMALL)==
