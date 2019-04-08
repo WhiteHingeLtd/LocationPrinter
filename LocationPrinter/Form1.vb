@@ -213,4 +213,31 @@
         Next
 
     End Sub
+
+    Private Sub listgogo_Click(sender As Object, e As EventArgs) Handles listgogo.Click
+        For Each Current As String In listlist.Lines
+            Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+            If response.GetType = (New ArrayList).GetType Then
+                Dim list As ArrayList = response
+                If list.Count = 1 Then
+                    CurrentID = list(0)(0).ToString
+                    CurrentIdLabel.Text = CurrentID
+                    CurrentLabel = Current.ToUpper
+                    CurrentType = list(0)(3)
+                    Printer.DocumentName = Current + " - Shelf label"
+                    Printer.Print()
+                Else
+                    MsgBox("Could not find an ID for location " + Current)
+                End If
+            Else
+                MsgBox("There was an issue with the database. Aborting.")
+                Exit For
+                Exit For
+                Exit For
+            End If
+            'End of cool
+            'Space.BackColor = SystemColors.Control
+            Application.DoEvents()
+        Next
+    End Sub
 End Class

@@ -68,24 +68,27 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.BasicTab = New System.Windows.Forms.TabPage()
         Me.AdvancedTab = New System.Windows.Forms.TabPage()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.BPanel1 = New WHLClasses.Controls.BPanel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.SourceBox = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.p1_Start = New System.Windows.Forms.TextBox()
-        Me.p1_end = New System.Windows.Forms.TextBox()
-        Me.p2_end = New System.Windows.Forms.TextBox()
-        Me.p2_start = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.p1_padding = New System.Windows.Forms.TextBox()
-        Me.p2_padding = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.currentID1 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Currentlabel1 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.SourceBox = New System.Windows.Forms.TextBox()
+        Me.BPanel1 = New WHLClasses.Controls.BPanel()
+        Me.p2_padding = New System.Windows.Forms.TextBox()
+        Me.p1_padding = New System.Windows.Forms.TextBox()
+        Me.p2_end = New System.Windows.Forms.TextBox()
+        Me.p2_start = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.p1_end = New System.Windows.Forms.TextBox()
+        Me.p1_Start = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.listlist = New System.Windows.Forms.TextBox()
+        Me.listgogo = New System.Windows.Forms.Button()
         Me.ShelfGroup.SuspendLayout()
         Me.RowGroup.SuspendLayout()
         Me.SpaceGroup.SuspendLayout()
@@ -95,6 +98,7 @@ Partial Class Form1
         Me.BasicTab.SuspendLayout()
         Me.AdvancedTab.SuspendLayout()
         Me.BPanel1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ShelfGroup
@@ -624,6 +628,7 @@ Partial Class Form1
         '
         Me.TabControl1.Controls.Add(Me.BasicTab)
         Me.TabControl1.Controls.Add(Me.AdvancedTab)
+        Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -665,150 +670,6 @@ Partial Class Form1
         Me.AdvancedTab.Text = "Advanced"
         Me.AdvancedTab.UseVisualStyleBackColor = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(20, 20)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 15)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Source:"
-        '
-        'BPanel1
-        '
-        Me.BPanel1.BorderWidth = 1
-        Me.BPanel1.Controls.Add(Me.p2_padding)
-        Me.BPanel1.Controls.Add(Me.p1_padding)
-        Me.BPanel1.Controls.Add(Me.p2_end)
-        Me.BPanel1.Controls.Add(Me.p2_start)
-        Me.BPanel1.Controls.Add(Me.Label8)
-        Me.BPanel1.Controls.Add(Me.p1_end)
-        Me.BPanel1.Controls.Add(Me.p1_Start)
-        Me.BPanel1.Controls.Add(Me.Label7)
-        Me.BPanel1.Controls.Add(Me.Label4)
-        Me.BPanel1.HighlightBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(218, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.BPanel1.HighlightBorderColor = System.Drawing.Color.FromArgb(CType(CType(98, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(228, Byte), Integer))
-        Me.BPanel1.HighlightNotBackgroundColor = System.Drawing.Color.Empty
-        Me.BPanel1.HighlightNotBorderColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.BPanel1.HighlightOnFocus = True
-        Me.BPanel1.Location = New System.Drawing.Point(10, 117)
-        Me.BPanel1.Margin = New System.Windows.Forms.Padding(10)
-        Me.BPanel1.Name = "BPanel1"
-        Me.BPanel1.Padding = New System.Windows.Forms.Padding(21, 8, 8, 8)
-        Me.BPanel1.Size = New System.Drawing.Size(537, 122)
-        Me.BPanel1.TabIndex = 1
-        Me.BPanel1.Title = "Parameter Options"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 99)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(106, 15)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Edges are included"
-        '
-        'SourceBox
-        '
-        Me.SourceBox.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SourceBox.Location = New System.Drawing.Point(72, 13)
-        Me.SourceBox.Name = "SourceBox"
-        Me.SourceBox.Size = New System.Drawing.Size(100, 27)
-        Me.SourceBox.TabIndex = 2
-        Me.SourceBox.Text = "A{1}-{2}"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(23, 57)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(157, 15)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Available Parameters: {1}, {2}"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(27, 12)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(414, 15)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "1:          Count from:                                          To:             " &
-    "                         Padding:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'p1_Start
-        '
-        Me.p1_Start.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p1_Start.Location = New System.Drawing.Point(142, 5)
-        Me.p1_Start.Name = "p1_Start"
-        Me.p1_Start.Size = New System.Drawing.Size(100, 27)
-        Me.p1_Start.TabIndex = 4
-        Me.p1_Start.Text = "0"
-        '
-        'p1_end
-        '
-        Me.p1_end.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p1_end.Location = New System.Drawing.Point(289, 5)
-        Me.p1_end.Name = "p1_end"
-        Me.p1_end.Size = New System.Drawing.Size(86, 27)
-        Me.p1_end.TabIndex = 5
-        Me.p1_end.Text = "99"
-        '
-        'p2_end
-        '
-        Me.p2_end.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p2_end.Location = New System.Drawing.Point(289, 40)
-        Me.p2_end.Name = "p2_end"
-        Me.p2_end.Size = New System.Drawing.Size(86, 27)
-        Me.p2_end.TabIndex = 8
-        Me.p2_end.Text = "99"
-        '
-        'p2_start
-        '
-        Me.p2_start.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p2_start.Location = New System.Drawing.Point(142, 40)
-        Me.p2_start.Name = "p2_start"
-        Me.p2_start.Size = New System.Drawing.Size(100, 27)
-        Me.p2_start.TabIndex = 7
-        Me.p2_start.Text = "0"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(27, 47)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(414, 15)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "2:          Count from:                                          To:             " &
-    "                         Padding:"
-        '
-        'p1_padding
-        '
-        Me.p1_padding.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p1_padding.Location = New System.Drawing.Point(451, 5)
-        Me.p1_padding.Name = "p1_padding"
-        Me.p1_padding.Size = New System.Drawing.Size(86, 27)
-        Me.p1_padding.TabIndex = 9
-        Me.p1_padding.Text = "2"
-        '
-        'p2_padding
-        '
-        Me.p2_padding.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.p2_padding.Location = New System.Drawing.Point(451, 40)
-        Me.p2_padding.Name = "p2_padding"
-        Me.p2_padding.Size = New System.Drawing.Size(86, 27)
-        Me.p2_padding.TabIndex = 10
-        Me.p2_padding.Text = "2"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(178, 13)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 27)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Go"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'currentID1
         '
         Me.currentID1.AutoSize = True
@@ -847,11 +708,185 @@ Partial Class Form1
         Me.Label12.TabIndex = 5
         Me.Label12.Text = "Current Label"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(178, 13)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 27)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Go"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(23, 57)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(157, 15)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Available Parameters: {1}, {2}"
+        '
+        'SourceBox
+        '
+        Me.SourceBox.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SourceBox.Location = New System.Drawing.Point(72, 13)
+        Me.SourceBox.Name = "SourceBox"
+        Me.SourceBox.Size = New System.Drawing.Size(100, 27)
+        Me.SourceBox.TabIndex = 2
+        Me.SourceBox.Text = "A{1}-{2}"
+        '
+        'BPanel1
+        '
+        Me.BPanel1.BorderWidth = 1
+        Me.BPanel1.Controls.Add(Me.p2_padding)
+        Me.BPanel1.Controls.Add(Me.p1_padding)
+        Me.BPanel1.Controls.Add(Me.p2_end)
+        Me.BPanel1.Controls.Add(Me.p2_start)
+        Me.BPanel1.Controls.Add(Me.Label8)
+        Me.BPanel1.Controls.Add(Me.p1_end)
+        Me.BPanel1.Controls.Add(Me.p1_Start)
+        Me.BPanel1.Controls.Add(Me.Label7)
+        Me.BPanel1.Controls.Add(Me.Label4)
+        Me.BPanel1.HighlightBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(218, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.BPanel1.HighlightBorderColor = System.Drawing.Color.FromArgb(CType(CType(98, Byte), Integer), CType(CType(162, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.BPanel1.HighlightNotBackgroundColor = System.Drawing.Color.Empty
+        Me.BPanel1.HighlightNotBorderColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.BPanel1.HighlightOnFocus = True
+        Me.BPanel1.Location = New System.Drawing.Point(10, 117)
+        Me.BPanel1.Margin = New System.Windows.Forms.Padding(10)
+        Me.BPanel1.Name = "BPanel1"
+        Me.BPanel1.Padding = New System.Windows.Forms.Padding(21, 8, 8, 8)
+        Me.BPanel1.Size = New System.Drawing.Size(537, 122)
+        Me.BPanel1.TabIndex = 1
+        Me.BPanel1.Title = "Parameter Options"
+        '
+        'p2_padding
+        '
+        Me.p2_padding.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p2_padding.Location = New System.Drawing.Point(451, 40)
+        Me.p2_padding.Name = "p2_padding"
+        Me.p2_padding.Size = New System.Drawing.Size(86, 27)
+        Me.p2_padding.TabIndex = 10
+        Me.p2_padding.Text = "2"
+        '
+        'p1_padding
+        '
+        Me.p1_padding.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p1_padding.Location = New System.Drawing.Point(451, 5)
+        Me.p1_padding.Name = "p1_padding"
+        Me.p1_padding.Size = New System.Drawing.Size(86, 27)
+        Me.p1_padding.TabIndex = 9
+        Me.p1_padding.Text = "2"
+        '
+        'p2_end
+        '
+        Me.p2_end.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p2_end.Location = New System.Drawing.Point(289, 40)
+        Me.p2_end.Name = "p2_end"
+        Me.p2_end.Size = New System.Drawing.Size(86, 27)
+        Me.p2_end.TabIndex = 8
+        Me.p2_end.Text = "99"
+        '
+        'p2_start
+        '
+        Me.p2_start.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p2_start.Location = New System.Drawing.Point(142, 40)
+        Me.p2_start.Name = "p2_start"
+        Me.p2_start.Size = New System.Drawing.Size(100, 27)
+        Me.p2_start.TabIndex = 7
+        Me.p2_start.Text = "0"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(27, 47)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(414, 15)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "2:          Count from:                                          To:             " &
+    "                         Padding:"
+        '
+        'p1_end
+        '
+        Me.p1_end.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p1_end.Location = New System.Drawing.Point(289, 5)
+        Me.p1_end.Name = "p1_end"
+        Me.p1_end.Size = New System.Drawing.Size(86, 27)
+        Me.p1_end.TabIndex = 5
+        Me.p1_end.Text = "99"
+        '
+        'p1_Start
+        '
+        Me.p1_Start.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.p1_Start.Location = New System.Drawing.Point(142, 5)
+        Me.p1_Start.Name = "p1_Start"
+        Me.p1_Start.Size = New System.Drawing.Size(100, 27)
+        Me.p1_Start.TabIndex = 4
+        Me.p1_Start.Text = "0"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(27, 12)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(414, 15)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "1:          Count from:                                          To:             " &
+    "                         Padding:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(24, 99)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(106, 15)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Edges are included"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(20, 20)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 15)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Source:"
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.listgogo)
+        Me.TabPage1.Controls.Add(Me.listlist)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(641, 249)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "List"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'listlist
+        '
+        Me.listlist.Dock = System.Windows.Forms.DockStyle.Left
+        Me.listlist.Location = New System.Drawing.Point(3, 3)
+        Me.listlist.Multiline = True
+        Me.listlist.Name = "listlist"
+        Me.listlist.Size = New System.Drawing.Size(163, 243)
+        Me.listlist.TabIndex = 0
+        '
+        'listgogo
+        '
+        Me.listgogo.Location = New System.Drawing.Point(199, 65)
+        Me.listgogo.Name = "listgogo"
+        Me.listgogo.Size = New System.Drawing.Size(75, 23)
+        Me.listgogo.TabIndex = 16
+        Me.listgogo.Text = "gogogo list"
+        Me.listgogo.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(667, 292)
+        Me.ClientSize = New System.Drawing.Size(663, 292)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.Text = "Shelf Label Maker"
@@ -871,6 +906,8 @@ Partial Class Form1
         Me.AdvancedTab.PerformLayout()
         Me.BPanel1.ResumeLayout(False)
         Me.BPanel1.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -939,4 +976,7 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents Currentlabel1 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents listgogo As Button
+    Friend WithEvents listlist As TextBox
 End Class
