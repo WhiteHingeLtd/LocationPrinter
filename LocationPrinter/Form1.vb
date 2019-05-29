@@ -215,6 +215,7 @@
     End Sub
 
     Private Sub listgogo_Click(sender As Object, e As EventArgs) Handles listgogo.Click
+        Printer.PrintController = (New Printing.StandardPrintController)
         For Each Current As String In listlist.Lines
             Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
             If response.GetType = (New ArrayList).GetType Then
@@ -224,6 +225,7 @@
                     CurrentIdLabel.Text = CurrentID
                     CurrentLabel = Current.ToUpper
                     CurrentType = list(0)(3)
+                    listCurrent.Text = Current
                     Printer.DocumentName = Current + " - Shelf label"
                     Printer.Print()
                 Else
