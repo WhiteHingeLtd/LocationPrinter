@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports WhlClasses
+Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartButton.Click
 
         Printer.PrintController = (New Printing.StandardPrintController)
@@ -16,14 +17,14 @@
                                 'ITS HAPPENING
                                 Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
                                 CurrentLocationLabel.Text = Current
-                                Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                                Dim response As Object = MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
                                 If response.GetType = (New ArrayList).GetType Then
                                     Dim list As ArrayList = response
                                     If list.Count = 1 Then
-                                        CurrentID = list(0)(0).ToString
+                                        CurrentID = list(0)("locID").ToString
                                         CurrentIdLabel.Text = CurrentID
                                         CurrentLabel = Current.ToUpper
-                                        CurrentType = list(0)(3)
+                                        CurrentType = list(0)("locType")
                                         Printer.DocumentName = Current + " - Shelf label"
                                         Printer.Print()
                                     Else
@@ -268,15 +269,15 @@
             For count2 As Integer = start2 To end2
                 Dim Current As String = SourceBox.Text.Replace("{1}", count1.ToString.PadLeft(pad1, "0")).Replace("{2}", count2.ToString.PadLeft(pad2, "0"))
                 Currentlabel1.Text = Current
-                Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
                 If response.GetType = (New ArrayList).GetType Then
 
                     Dim list As ArrayList = response
                     If list.Count = 1 Then
-                        CurrentID = list(0)(0).ToString
+                        CurrentID = list(0)("locID").ToString
                         currentID1.Text = CurrentID
                         CurrentLabel = Current
-                        CurrentType = list(0)(3)
+                        CurrentType = list(0)("locType")
                         Application.DoEvents()
                         Printer.DocumentName = Current + " - Shelf label"
                         Printer.Print()
@@ -312,14 +313,14 @@
             For each Line as String in LocationTB.Lines
                 Dim Current As String = Line
                 CurrentLocationLabel.Text = Current
-                Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                Dim response As Object = MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
                 If response.GetType = (New ArrayList).GetType Then
                     Dim list As ArrayList = response
                     If list.Count = 1 Then
-                        CurrentID = list(0)(0).ToString
+                        CurrentID = list(0)("locID").ToString
                         CurrentIdLabel.Text = CurrentID
                         CurrentLabel = Current.ToUpper
-                        CurrentType = list(0)(3)
+                        CurrentType = list(0)("locType")
                         Printer.DocumentName = Current + " - Shelf label"
                         ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
                         'Printer.Print()
@@ -350,14 +351,14 @@
                                         'ITS HAPPENING
                                         Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
                                         CurrentLocationLabel.Text = Current
-                                        Dim response As Object = WHLClasses.MySQL.SelectData("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                                        Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
                                         If response.GetType = (New ArrayList).GetType Then
                                             Dim list As ArrayList = response
                                             If list.Count = 1 Then
-                                                CurrentID = list(0)(0).ToString
+                                                CurrentID = list(0)("locID").ToString
                                                 CurrentIdLabel.Text = CurrentID
                                                 CurrentLabel = Current.ToUpper
-                                                CurrentType = list(0)(3)
+                                                CurrentType = list(0)("locType")
                                                 Printer.DocumentName = Current + " - Shelf label"
                                                 ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
                                                 'Printer.Print()
