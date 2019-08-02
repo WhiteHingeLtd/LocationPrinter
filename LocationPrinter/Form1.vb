@@ -17,9 +17,9 @@ Public Class Form1
                                 'ITS HAPPENING
                                 Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
                                 CurrentLocationLabel.Text = Current
-                                Dim response As Object = MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-                                If response.GetType = (New ArrayList).GetType Then
-                                    Dim list As ArrayList = response
+                                Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                                If response.Count > 0 Then
+                                    Dim list As Dictionary(Of string,Object) = response
                                     If list.Count = 1 Then
                                         CurrentID = list(0)("locID").ToString
                                         CurrentIdLabel.Text = CurrentID
@@ -269,10 +269,10 @@ Public Class Form1
             For count2 As Integer = start2 To end2
                 Dim Current As String = SourceBox.Text.Replace("{1}", count1.ToString.PadLeft(pad1, "0")).Replace("{2}", count2.ToString.PadLeft(pad2, "0"))
                 Currentlabel1.Text = Current
-                Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-                If response.GetType = (New ArrayList).GetType Then
+                Dim response = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                If response.Count > 0 Then
 
-                    Dim list As ArrayList = response
+                    Dim list = response
                     If list.Count = 1 Then
                         CurrentID = list(0)("locID").ToString
                         currentID1.Text = CurrentID
@@ -309,20 +309,23 @@ Public Class Form1
         StartButton.Enabled = False
         ListOfShelves.Clear()
 
-        If LocationTB.lines.count>0 then
-            For each Line as String in LocationTB.Lines
+        If LocationTB.lines.count>0 Then
+            For Each Line As String In LocationTB.Lines
                 Dim Current As String = Line
+                If Current = "" Then
+                    Continue For
+                End If
                 CurrentLocationLabel.Text = Current
-                Dim response As Object = MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-                If response.GetType = (New ArrayList).GetType Then
-                    Dim list As ArrayList = response
+                Dim response = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                If response.Count > 0 Then
+                    Dim list = response
                     If list.Count = 1 Then
                         CurrentID = list(0)("locID").ToString
                         CurrentIdLabel.Text = CurrentID
                         CurrentLabel = Current.ToUpper
                         CurrentType = list(0)("locType")
                         Printer.DocumentName = Current + " - Shelf label"
-                        ListOfShelves.Add(Current.ToUpper,"qlo"+CurrentID)
+                        ListOfShelves.Add(Current.ToUpper, "qlo" + CurrentID)
                         'Printer.Print()
                     Else
                         MsgBox("Could not find an ID for location " + Current)
@@ -334,7 +337,7 @@ Public Class Form1
                 'End of cool
                 Application.DoEvents()
             Next
-            If ListOfShelves.Count > 0
+            If ListOfShelves.Count > 0Then
                     CreateSheetOfBarcodes(ListOfShelves)
                 End If
         Else
@@ -351,9 +354,9 @@ Public Class Form1
                                         'ITS HAPPENING
                                         Dim Current As String = PrefixBox.Text + shelf.Tag.ToString + "-" + row.Tag.ToString + space.Tag.ToString
                                         CurrentLocationLabel.Text = Current
-                                        Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-                                        If response.GetType = (New ArrayList).GetType Then
-                                            Dim list As ArrayList = response
+                                        Dim response = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
+                                        If response.Count > 0 Then
+                                            Dim list = response
                                             If list.Count = 1 Then
                                                 CurrentID = list(0)("locID").ToString
                                                 CurrentIdLabel.Text = CurrentID
