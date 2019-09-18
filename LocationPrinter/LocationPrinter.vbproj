@@ -54,8 +54,8 @@
     <Reference Include="Microsoft.Toolkit.Uwp.Notifications">
       <HintPath>..\..\..\..\GIT\BakeryTester\packages\Microsoft.Toolkit.Uwp.Notifications.1.0.0\lib\dotnet\Microsoft.Toolkit.Uwp.Notifications.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\GIT\Framework\Framework\Refs\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -131,6 +131,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Framework\Framework\Framework.vbproj">

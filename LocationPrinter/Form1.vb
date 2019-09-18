@@ -217,14 +217,13 @@
         Printer.PrintController = (New Printing.StandardPrintController)
         For Each Current As String In listlist.Lines
             Dim response As Object = WHLClasses.MySQL.SelectDataDictionary("SELECT * FROM whldata.locationreference WHERE loctext='" + Current + "'")
-            If response.GetType = (New ArrayList).GetType Then
-                Dim list As ArrayList = response
-                If list.Count = 1 Then
-                    CurrentID = list(0)(0).ToString
-                    CurrentIdLabel.Text = CurrentID
-                    CurrentLabel = Current.ToUpper
-                    CurrentType = list(0)(3)
-                    listCurrent.Text = Current
+            If Not response Is Nothing Then
+                If response.Count = 1 Then
+                    CurrentID = response(0)("locID").ToString
+                    currentID1.Text = CurrentID
+                    CurrentLabel = Current
+                    CurrentType = response(0)("locType")
+                    Application.DoEvents()
                     Printer.DocumentName = Current + " - Shelf label"
                     Printer.Print()
                 Else
